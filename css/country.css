@@ -66,6 +66,10 @@ body {
     box-shadow: var(--box-shadow-light);
 }
 
+.country-border-box .world-description-text {
+    margin-bottom: 1.5rem;
+}
+
 
 @media screen and (min-width: 960px) {
     .country-box {
