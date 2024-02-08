@@ -129,12 +129,14 @@ button {
 }
 
 .btn-theme {
+    padding: .5rem .75rem;
     text-transform: capitalize;
     font-weight: var(--fw-bold);
 }
 
 .btn-theme:hover {
     opacity: .7;
+    box-shadow: var(--box-shadow);
 }
 
 .world-search-box {
