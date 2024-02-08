@@ -31,7 +31,7 @@ html, body {
 
 body{
     font-family: var(--font-family);
-    font-size: var(--font-size-detail);
+    font-size: var(--font-size-homepage);
 }
 
 h1, h2, h3 {
@@ -150,6 +150,7 @@ button {
     text-indent: 2rem;
     box-shadow: var(--box-shadow);
     border-radius: 4px;
+    font-size: 1.15rem;
 }
 
 .world-search-input:focus {
@@ -170,12 +171,14 @@ button {
 
 .world-filter-box {
     position: relative;
-    width: 175px;
+    width: 200px;
+    font-size: 1.05rem;
+
 }
 
 .world-filter-button {
-    padding: 1rem .5rem;
-    width: 90%;
+    padding: 1rem;
+    width: 85%;
     box-shadow: var(--box-shadow);
     border-radius: 4px;
     text-transform: capitalize;
@@ -237,10 +240,12 @@ button {
     text-transform: capitalize;
     letter-spacing: .5px;
     margin-bottom: 1rem;
+    font-size: 1.25rem;
 }
 
 .world-description-text {
     margin-bottom: .5rem;
+    font-size: 1.05rem;
     font-weight: var(--fw-bold);
 }
 
