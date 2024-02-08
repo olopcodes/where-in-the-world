@@ -16,13 +16,14 @@ body {
 
 .country-back-btn {
     justify-self: start;
-    padding: .75rem 1.5rem;
+    padding: .75rem 1rem;
     text-transform: capitalize;
     font-weight: var(--fw-bold);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80px;
+    width: 100px;
+    cursor: pointer;
 }
 
 .country-back-btn:hover {
