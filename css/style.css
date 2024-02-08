@@ -247,6 +247,7 @@ button {
     margin-bottom: .5rem;
     font-size: 1.05rem;
     font-weight: var(--fw-bold);
+    text-transform: capitalize;
 }
 
 .world-description-text span {
