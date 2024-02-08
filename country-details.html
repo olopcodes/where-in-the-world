@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/country.css">
 </head>
-<body>
+<body id="light-theme">
     <header class="world-header">
         <div class="container">
             <a href="index.html" class="world-logo">where in the world?</a>
@@ -20,40 +20,47 @@
             <button id="theme-toggler"><i class="fa-regular fa-moon"></i> dark mode</button>
         </div>
     </header>
-    <main>
+    <main class="country-wrapper">
         <div class="container">
-            <button id="btn-back" class="world-btn-back">back</button>
+            <button id="btn-back" class="country-btn-back"><i class="fa-solid fa-arrow-left-long"></i> back</button>
 
-            <div class="world-country-box">
-                <div class="world-country-flag">
-                    <img src="" alt="">
+            <div class="country-box">
+                <div class="country-flag">
+                    <img src="https://picsum.photos/200/" alt="">
                 </div>
 
-                <div class="world-country-stats">
-                    <h2 class="world-country-name"></h2>
-                    <div class="world-country-stats-box-1">
-                        <p id="country-native"></p>
-                        <p id="country-pop"></p>
-                        <p id="country-region"></p>
-                        <p id="country-sub-region"></p>
-                        <p id="country-capital"></p>
+                <div class="country-stats">
+                    <h2 class="world-country-name">Country anme</h2>
+                    <div class="country-stats-box-1">
+                        <p id="country-native" class="world-description-text">Native Name: <span>amamdww</span></p>
+                        <p id="country-pop" class="world-description-text">population: <span></span></p>
+                        <p id="country-region" class="world-description-text">region:<span> ewewdw</span></p>
+                        <p id="country-sub-region" class="world-description-text">sub region: <span>wdsdsds dsdsd</span></p>
+                        <p id="country-capital" class="world-description-text">capital: <span></span></p>
                     </div>
-                    <div class="world-country-stats-box-2">
-                        <p id="country-domain"></p>
-                        <p id="country-currency"></p>
-                        <p id="country-lang"></p>
+                    <div class="country-stats-box-2">
+                        <p id="country-domain" class="world-description-text">top level domain: <span>.com</span></p>
+                        <p id="country-currency" class="world-description-text">currency: <span>Eruo</span></p>
+                        <p id="country-lang" class="world-description-text">languages:<span>english, dutch, sapnish</span></p>
                     </div>
-                    <div class="world-country-border-box">
+                    <div class="country-border-box">
                         <p class="world-description-text">Border countries</p>
-                        <a href="#">one</a>
-                        <a href="#">two</a>
-                        <a href="#">three</a>
+                        <div class="country-borders">
+                            <a href="#">france</a>
+                            <a href="#">canada</a>
+                            <a href="#">belgium</a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
         
     </main>
+    <footer>
+        <small>olopcodes &copy; 2024</small>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/app.js"></script>
     <script src="js/country.js"></script>
 </body>

@@ -1,0 +1,17 @@
+body {
+    font-size: var(--font-size-detail);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.country-wrapper .container {
+    max-width: 1300px;
+    display: grid;
+    gap: 3rem;
+}
+
+.country-back-btn {
+    box-shadow: var(--box-shadow-light) !important;
+    background-color: red !important;
+}
+
