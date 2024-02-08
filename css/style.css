@@ -80,7 +80,8 @@ button {
 #light-theme .world-search-input,
 #light-theme .world-filter-button,
 #light-theme .world-region-list,
-#light-theme .world-card {
+#light-theme .world-card,
+#light-theme .country-back-btn {
     background-color: var(--white-for-dark-mode-text-light-mode-elements);
 }
 
