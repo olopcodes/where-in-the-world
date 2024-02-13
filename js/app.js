@@ -22,11 +22,8 @@ $(document).ready(function () {
         e.preventDefault();
        
         if($(e.target).hasClass('world-learn-more-button')) {
-        setTimeout(window.location.replace("./country-details.html"), 3000);
-
             const divID = $(e.target).closest('div').attr('id');
-            getCountriesByCategory('alpha',divID, renderCountryDetails)
-            
+            set_url_data("./country-details.html", divID)
         }
 
         
@@ -34,18 +31,11 @@ $(document).ready(function () {
 
     // pass info to another page
     // set your data in the source page 
-function set_url_data(go_to_url, data) {
-    new_url = go_to_url + '?data=' + data;
-    window.location.href = new_url;
-  }
+    function set_url_data(go_to_url, data) {
+        new_url = go_to_url + '?data=' + data;
+        window.location.href = new_url;
+    }
   
-  // parse your data in the destination page 
-  function grab_data_from_url() {
-    url = window.location.href;
-    data = url.split('data=').pop();
-    return(data)
-  }
-
 
     // show random countries in region clicked
     $(worldRegionList).click(function(e) {
@@ -59,10 +49,7 @@ function set_url_data(go_to_url, data) {
         
     })
 
-    function renderCountryDetails(data) {
-        console.log(data)
-        // renderCountryDetails(data);
-    }
+    
 
     function showRegionCountries(data) {
 
@@ -157,55 +144,6 @@ function set_url_data(go_to_url, data) {
             <button class="world-learn-more-button">learn more <i class="fa-solid fa-arrow-right-long"></i></button>
         </div> `;
     }
-
-    function countryDetailsHTML (data) {
-        console.log(data, 'deatils')
-        let bordersHTML = ''
-        for(const b of data.borders) {
-            bordersHTML += `
-            <a id="${b}" class="country-border-link" href="#">${b}</a>
-            `
-        }
-
-        let langs = [];
-
-        for(const prop in data.languages) {
-            langs.push(`${data.languages[prop]}`)
-        }
-
-        return `
-        
-            <div class="country-flag">
-                <img src="${data.flags.png}" alt="">
-            </div>
-
-            <div class="country-stats">
-                <h2 class="world-country-name">${data.name.common}</h2>
-                <div class="country-stats-box-1">
-                    <p id="country-native" class="world-description-text">Native Name: <span>${data[0].name.nativeName.eng}</span></p>
-                    <p id="country-pop" class="world-description-text">population: <span>${data.population}</span></p>
-                    <p id="country-region" class="world-description-text">region:<span> ${data.region}</span></p>
-                    <p id="country-sub-region" class="world-description-text">sub region: <span>${data.subregion}</span></p>
-                    <p id="country-capital" class="world-description-text">capital: <span>${data.capital}</span></p>
-                </div>
-                <div class="country-stats-box-2">
-                    <p id="country-domain" class="world-description-text">top level domain: <span>${data.tld}</span></p>
-                    <p id="country-currency" class="world-description-text">currency: <span>${data.currencies.DOP}</span></p>
-                    <p id="country-lang" class="world-description-text">languages:<span> ${langs.join(' ,')}</span></p>
-                </div>
-                <div class="country-border-box">
-                    <p class="world-description-text">Border countries</p>
-                    <div class="country-borders">
-                        ${bordersHTML}
-                    </div>
-                    
-                </div>
-             </div>
-       
-        `
-    }
-
-    
 
     function getRandomIndexes () {
         randomIndexes = [];
