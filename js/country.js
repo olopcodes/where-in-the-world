@@ -2,15 +2,14 @@ $(document).ready(function () {
     const countryBordersBoxEl = $('.country-borders');
     const countryBoxEl = $('.country-box');
 
-    countryBordersBoxEl.click(function(e) {
-        console.log('update')
-
+    countryBoxEl.click(function(e) {
         if($(e.target).hasClass('country-border-link')) {
             const id = $(e.target).closest('button').attr('id');
-            updateUrlInfo('country-details.html', id)
+            updateUrlInfo(id)
         }
     })
 
+    
 
     // parse your data in the destination page 
     function getDataFromUrl() {
@@ -19,11 +18,11 @@ $(document).ready(function () {
         return(data)
     }
 
-    function updateUrlInfo(data) {
-        // new_url = go_to_url + '?border' + data;
-        new_url = go_to_url + '?border=' + data;
-        console.log(new_url)
-        // window.location.href = new_url;
+    function updateUrlInfo(id) {
+        const searchParams = new URLSearchParams(window.location.search);
+        searchParams.set('data', id);
+        window.location.search = searchParams.toString();
+        
     }
 
     function getCountriesByCategory(cat, name, cb) {
@@ -82,7 +81,7 @@ $(document).ready(function () {
                 <p id="country-capital" class="world-description-text">capital: <span>${data.capital}</span></p>
             </div>
             <div class="country-stats-box-2">
-                <p id="country-domain" class="world-description-text">top level domain: <span>${data.tld}</span></p>
+                <p id="country-domain" class="world-description-text">top level domain: <span>${data.tld[0].toLowerCase()}</span></p>
                 <p id="country-currency" class="world-description-text">currency: <span>${currency}</span></p>
                 <p id="country-lang" class="world-description-text">languages:<span> ${langs.join(' , ')}</span></p>
             </div>
