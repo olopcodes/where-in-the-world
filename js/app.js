@@ -6,12 +6,18 @@ $(document).ready(function () {
     let numberOfCountries = 250;
     const worldResults = $('.world-results');
     const worldRegionList = $('.world-region-list');
+    const refreshBtn = $('.btn-refresh');
 
     let countryDetailsPage = new URL("https://that.example.com/path/page");
     let thisPage = new URL(document.location)
     let numberOfCountriesToShow = 0;
     let randomIndexes = [];
     const countriesShown = [];
+
+    $(refreshBtn).click(function(e) {
+        location.reload();
+    })
+    
 
     // show the regoin list
     $(filterButtonEl).click(function (e) { 
