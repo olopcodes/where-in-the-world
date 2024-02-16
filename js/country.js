@@ -114,7 +114,7 @@ $(document).ready(function () {
         function getThemeFromLocalStorage () {
             return theme = JSON.parse(localStorage.getItem('theme'));
         }
-
+        // console.log(theme, 'country')
         (function () {
             const id = getDataFromUrl()
             getCountriesByCategory('alpha',id, renderCountryDetails)

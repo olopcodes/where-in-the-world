@@ -9,7 +9,6 @@ $(document).ready(function () {
     const worldRegionList = $('.world-region-list');
     const refreshBtn = $('.btn-refresh');
     const themeBtn = $('.btn-theme');
-    let theme = 'light-theme';
     let randomIndexes = [];
  
 
@@ -18,17 +17,20 @@ $(document).ready(function () {
     })
     
     $(themeBtn).click(function (e) {
-        const theme = $('body').attr('id');
-        
-        if(theme === 'light-theme') {
+        const bodyTheme = $('body').attr('id');
+        let newTheme
+        if(bodyTheme === 'light-theme') {
             $('body').attr('id', 'dark-theme');
-            theme = 'dark-theme'
+            newTheme = 'dark-theme';
+            $('.btn-theme').html('<i class="fa-regular fa-sun"></i> light mode');  
+
         } else {
             $('body').attr('id', 'light-theme');
-            theme = 'light-theme';
+            newTheme = 'light-theme';
+            $('.btn-theme').html('<i class="fa-regular fa-moon"></i> dark mode');
         }
 
-        setLocalStorageTheme(theme)
+        setLocalStorageTheme(newTheme);
     })
 
     // show the regoin list
@@ -52,7 +54,7 @@ $(document).ready(function () {
         window.location.href = new_url;
     }
   
-    function setLocalStorageTheme (theme) {
+    function setLocalStorageTheme (theme = 'light-theme') {
        localStorage.setItem('theme', JSON.stringify(theme))
     }
 
