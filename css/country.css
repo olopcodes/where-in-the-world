@@ -33,7 +33,7 @@ body {
 .country-box {
     display: grid;
     gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: 450px;
 }
 
@@ -72,34 +72,59 @@ body {
 }
 
 
+@media screen and (min-width: 600px) {
+    .country-wrapper .container  {
+        margin-top: 5rem;
+    }
+
+    .country-box {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    }
+
+    .country-stats {
+        grid-template-areas: 
+            "name name"
+            "list-1 list-2"
+            "border border";
+        }
+
+       .country-stats .world-country-name {
+        grid-area: name;
+       } 
+    
+        .country-stats-box-1 {
+            grid-area: list-1;
+        }
+        
+        .country-stats-box-2 {
+            grid-area: list-2;
+        }
+        
+        .country-border-box {
+            grid-area: border;
+        }
+}
+
 @media screen and (min-width: 960px) {
+    .country-wrapper .container  {
+        margin-top: 3rem;
+    }
+
     .country-box {
         gap: 5rem;
     }
 
     .country-stats {
         grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "name name"
-            "list-1 list-2"
-            "border border";
+        
     }
 
     .country-stats .world-country-name {
-        grid-area: name;
+       
         align-self: end;
     }
     
-    .country-stats-box-1 {
-        grid-area: list-1;
-    }
     
-    .country-stats-box-2 {
-        grid-area: list-2;
-    }
-    
-    .country-border-box {
-        grid-area: border;
-    }
     
 }

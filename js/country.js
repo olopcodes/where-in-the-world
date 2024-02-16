@@ -42,7 +42,7 @@ $(document).ready(function () {
     console.log(data, 'deatils')
     let bordersHTML = ''
 
-    if(data.borders.length > 0) {
+    if(data.borders) {
         for(const b of data.borders) {
             bordersHTML += `
             <button id="${b}" class="country-border-link" href="#">${b}</button>
@@ -111,10 +111,23 @@ $(document).ready(function () {
             // renderCountryDetails(data);
         }
 
+        function getThemeFromLocalStorage () {
+            return theme = JSON.parse(localStorage.getItem('theme'));
+        }
 
         (function () {
             const id = getDataFromUrl()
             getCountriesByCategory('alpha',id, renderCountryDetails)
-           
+            
+            const theme = getThemeFromLocalStorage();
+
+            if(theme === 'light-theme') {
+                $('body').attr('id', 'dark-theme');
+                theme = 'dark-theme'
+            } else {
+                $('body').attr('id', 'light-theme');
+                theme = 'light-theme';
+            }
+
         })();
 });

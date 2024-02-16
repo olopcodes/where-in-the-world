@@ -71,9 +71,24 @@ button {
     width: 100%;
 }
 
+#dark-theme {
+    background-color: var(--dark-mode-dark-blue);
+    color: var(--white-for-dark-mode-text-light-mode-elements);
+}
+
+
 #light-theme {
     background-color: var(--light-mode-very-light-gray-bg);
     color: var(--light-mode-very-dark-blue-text);
+}
+
+#dark-theme .world-header,
+#dark-theme .world-search-input,
+#dark-theme .world-filter-button,
+#dark-theme .world-region-list,
+#dark-theme .world-card,
+#dark-theme .country-back-btn {
+    background-color: var(--dark-mode-very-dark-blue-bg);
 }
 
 #light-theme .world-header,
@@ -87,7 +102,7 @@ button {
 
 
 
-#light-theme footer {
+footer {
     background-color: var(--dark-mode-very-dark-blue-bg);
     color: var(--white-for-dark-mode-text-light-mode-elements);
 }

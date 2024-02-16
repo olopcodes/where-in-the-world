@@ -1,23 +1,35 @@
 
 $(document).ready(function () {
     // variables
+    let countryDetailsHTML = './country-details.html';
     const filterButtonEl = $('.world-filter-button');
     const filterRegionListEl = $('.world-region-list');
     let numberOfCountries = 250;
     const worldResults = $('.world-results');
     const worldRegionList = $('.world-region-list');
     const refreshBtn = $('.btn-refresh');
-
-    let countryDetailsPage = new URL("https://that.example.com/path/page");
-    let thisPage = new URL(document.location)
-    let numberOfCountriesToShow = 0;
+    const themeBtn = $('.btn-theme');
+    let theme = 'light-theme';
     let randomIndexes = [];
-    const countriesShown = [];
+ 
 
     $(refreshBtn).click(function(e) {
         location.reload();
     })
     
+    $(themeBtn).click(function (e) {
+        const theme = $('body').attr('id');
+        
+        if(theme === 'light-theme') {
+            $('body').attr('id', 'dark-theme');
+            theme = 'dark-theme'
+        } else {
+            $('body').attr('id', 'light-theme');
+            theme = 'light-theme';
+        }
+
+        setLocalStorageTheme(theme)
+    })
 
     // show the regoin list
     $(filterButtonEl).click(function (e) { 
@@ -29,19 +41,22 @@ $(document).ready(function () {
        
         if($(e.target).hasClass('world-learn-more-button')) {
             const divID = $(e.target).closest('div').attr('id');
-            set_url_data("./country-details.html", divID)
-        }
-
-        
+            set_url_data(countryDetailsHTML,'data', divID)
+        } 
     });
 
     // pass info to another page
     // set your data in the source page 
-    function set_url_data(go_to_url, data) {
-        new_url = go_to_url + '?data=' + data;
+    function set_url_data(go_to_url,key, data) {
+        new_url = go_to_url + `?${key}=` + data;
         window.location.href = new_url;
     }
   
+    function setLocalStorageTheme (theme) {
+       localStorage.setItem('theme', JSON.stringify(theme))
+    }
+
+    
 
     // show random countries in region clicked
     $(worldRegionList).click(function(e) {
@@ -166,10 +181,11 @@ $(document).ready(function () {
     
     (function () {
         
-
         getRandomIndexes();
 
-        getAllCountries()
+        getAllCountries();
+
+        setLocalStorageTheme();
     })();
 });
 
